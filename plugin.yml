@@ -1,0 +1,24 @@
+name: NoTP
+main: jazzwhistle\NoTP\Main
+version: 1.0
+api: [1.0.0, 2.0.0]
+load: POSTWORLD
+author: jazzwhistle
+website: https://github.com/jazzwhistle
+commands:
+ notp:
+  description: "Toggles TP Accept mode for yourself"
+  usage: "/notp"
+  permission: notp.toggle
+permissions:
+  notp:
+    description: "Allows access to all NoTP features"
+    default: false
+    children:
+      notp.toggle:
+        description: "Allows the player to toggle NoTP mode"
+        default: false
+        children:
+          notp.toggle.self:
+            description: "Allows the player to toggle NoTP mode for themselves"
+            default: op
