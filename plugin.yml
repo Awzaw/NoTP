@@ -1,10 +1,10 @@
 name: NoTP
 main: jazzwhistle\NoTP\Main
-version: 1.0
-api: [1.0.0, 2.0.0]
+version: 1.0.1
+api: [1.4.0, 2.0.0]
 load: POSTWORLD
-author: jazzwhistle
-website: https://github.com/jazzwhistle
+author: awzaw
+website: https://github.com/awzaw
 commands:
  notp:
   description: "Toggles TP Accept mode for yourself"
