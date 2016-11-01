@@ -1,7 +1,7 @@
 name: NoTP
 main: jazzwhistle\NoTP\Main
-version: 1.0.2
-api: [1.13.0, 1.14.0, 2.0.0]
+version: 1.0.3
+api: [2.0.0]
 load: POSTWORLD
 author: awzaw
 website: https://github.com/awzaw
@@ -13,7 +13,7 @@ commands:
 permissions:
   notp:
     description: "Allows access to all NoTP features"
-    default: false
+    default: op
     children:
       notp.toggle:
         description: "Allows the player to toggle NoTP mode"
@@ -21,4 +21,4 @@ permissions:
         children:
           notp.toggle.self:
             description: "Allows the player to toggle NoTP mode for themselves"
-            default: op
+            default: false
