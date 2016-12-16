@@ -19,12 +19,12 @@ class Main extends PluginBase implements Listener {
 
     public function onCommand(CommandSender $issuer, Command $cmd, $label, array $args) {
         if ((strtolower($cmd->getName()) == "notp") && !(isset($args[0])) && ($issuer instanceof Player) && ($issuer->hasPermission("notp.toggle") || $issuer->hasPermission("notp.toggle.self"))) {
-            if (isset($this->enabled[strtolower($issuer->getName())])){
-                unset ($this->enabled[strtolower($issuer->getName())]);
-            }else{
-            $this->enabled[strtolower($issuer->getName())] = strtolower($issuer->getName());
+            if (isset($this->enabled[strtolower($issuer->getName())])) {
+                unset($this->enabled[strtolower($issuer->getName())]);
+            } else {
+                $this->enabled[strtolower($issuer->getName())] = strtolower($issuer->getName());
             }
-           
+
             if (isset($this->enabled[strtolower($issuer->getName())])) {
                 $issuer->sendMessage("NoTP mode enabled!");
             } else {
@@ -47,20 +47,20 @@ class Main extends PluginBase implements Listener {
         if (strtolower(substr($message, 0, 3) === "/tp")) { //Command
             $command = substr($message, 1);
             $args = explode(" ", $command);
-            if (!isset($args[1])){
-               return; 
+            if (!isset($args[1])) {
+                return;
             }
             $sender = $event->getPlayer();
-            
+
             foreach ($this->enabled as $notpuser) {
- 
-                if ((strpos(strtolower($notpuser), strtolower($args[1])) !== false) && (strtolower($notpuser) !== strtolower($sender->getName())) ) {
-                    $sender->sendMessage(TextFormat::RED. "This Player Is Not Accepting TP");
+
+                if ((strpos(strtolower($notpuser), strtolower($args[1])) !== false) && (strtolower($notpuser) !== strtolower($sender->getName()))) {
+                    $sender->sendMessage(TextFormat::RED . "This Player Is Not Accepting TP");
                     $event->setCancelled(true);
                 }
-                
+
                 if (isset($args[2]) && strpos(strtolower($notpuser), strtolower($args[2])) !== false && (strtolower($notpuser) !== strtolower($sender->getName()))) {
-                    $sender->sendMessage(TextFormat::RED. "This Player Is Not Accepting TP");
+                    $sender->sendMessage(TextFormat::RED . "This Player Is Not Accepting TP");
                     $event->setCancelled(true);
                 }
             }
