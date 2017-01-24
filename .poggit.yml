@@ -3,5 +3,6 @@ branches: master
 projects:
   NoTP:
     path: ""
+    icon: notp.png
     model: default
 ...
