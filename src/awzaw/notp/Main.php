@@ -1,6 +1,6 @@
 <?php
 
-namespace jazzwhistle\NoTP;
+namespace awzaw\notp;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
@@ -12,8 +12,10 @@ use pocketmine\event\player\PlayerCommandPreprocessEvent;
 
 class Main extends PluginBase implements Listener {
 
+    private $enabled;
+
     public function onEnable() {
-        $this->enabled = array();
+        $this->enabled = [];
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
 
@@ -57,6 +59,7 @@ class Main extends PluginBase implements Listener {
                 if ((strpos(strtolower($notpuser), strtolower($args[1])) !== false) && (strtolower($notpuser) !== strtolower($sender->getName()))) {
                     $sender->sendMessage(TextFormat::RED . "This Player Is Not Accepting TP");
                     $event->setCancelled(true);
+                    return;
                 }
 
                 if (isset($args[2]) && strpos(strtolower($notpuser), strtolower($args[2])) !== false && (strtolower($notpuser) !== strtolower($sender->getName()))) {

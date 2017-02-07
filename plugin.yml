@@ -1,5 +1,5 @@
 name: NoTP
-main: jazzwhistle\NoTP\Main
+main: awzaw\notp\Main
 version: 1.0.4
 api: [2.0.0, 3.0.0-ALPHA1, 3.0.0-ALPHA2, 3.0.0-ALPHA3]
 load: POSTWORLD
