@@ -65,6 +65,7 @@ class Main extends PluginBase implements Listener {
                 if (isset($args[2]) && strpos(strtolower($notpuser), strtolower($args[2])) !== false && (strtolower($notpuser) !== strtolower($sender->getName()))) {
                     $sender->sendMessage(TextFormat::RED . "This Player Is Not Accepting TP");
                     $event->setCancelled(true);
+                    return;
                 }
             }
         }
