@@ -38,13 +38,8 @@ class Main extends PluginBase implements Listener {
         }
     }
 
-    /**
-     * @param PlayerCommandPreprocessEvent $event
-     *
-     * @priority MONITOR
-     */
     public function onPlayerCommand(PlayerCommandPreprocessEvent $event) {
-
+        if ($event->isCancelled()) return;
         $message = $event->getMessage();
         if (strtolower(substr($message, 0, 3) === "/tp")) { //Command
             $command = substr($message, 1);
@@ -70,5 +65,4 @@ class Main extends PluginBase implements Listener {
             }
         }
     }
-
 }
