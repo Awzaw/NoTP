@@ -1,7 +1,7 @@
 name: NoTP
 main: awzaw\notp\Main
 version: 1.0.6
-api: [3.0.0-ALPHA5, 3.0.0-ALPHA6]
+api: [3.0.0-ALPHA7]
 load: POSTWORLD
 author: awzaw
 website: https://github.com/awzaw

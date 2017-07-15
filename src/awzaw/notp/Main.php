@@ -19,7 +19,7 @@ class Main extends PluginBase implements Listener {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
 
-    public function onCommand(CommandSender $issuer, Command $cmd, $label, array $args) {
+    public function onCommand(CommandSender $issuer, Command $cmd, string $label, array $args) : bool{
         if ((strtolower($cmd->getName()) == "notp") && !(isset($args[0])) && ($issuer instanceof Player) && ($issuer->hasPermission("notp.toggle") || $issuer->hasPermission("notp.toggle.self"))) {
             if (isset($this->enabled[strtolower($issuer->getName())])) {
                 unset($this->enabled[strtolower($issuer->getName())]);
