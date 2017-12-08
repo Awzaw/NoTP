@@ -41,11 +41,10 @@ class Main extends PluginBase implements Listener {
     public function onPlayerCommand(PlayerCommandPreprocessEvent $event) {
         if ($event->isCancelled()) return;
         $message = $event->getMessage();
-        if (strtolower(substr($message, 0, 3) === "/tp")) { //Command
-            $command = substr($message, 1);
-            $args = explode(" ", $command);
+        if (strtolower(substr($message, 0, 3)) == "/tp" || strtolower(substr($message, 0, 5)) == "/call" || strtolower(substr($message, 0, 7)) == "/tphere" || strtolower(substr($message, 0, 4)) == "/tpa") {
+            $args = explode(" ", $message);
             if (!isset($args[1])) {
-                return;
+                return;    
             }
             $sender = $event->getPlayer();
 
